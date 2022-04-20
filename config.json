@@ -1,0 +1,31 @@
+{
+
+"server_addr":"192.168.0.21",
+"server_port":20001,
+"client_addr":"192.168.0.169",
+"client_port":5000,
+"node_num":28175,
+"bufferSize":1024,
+"UDP":{
+      "family": "AF_INET",
+      "type": "SOCK_DGRAM"
+    },
+"node_config":{
+              "rate":"",
+              "mode":"",
+              "duration":true,
+              "timeout":7200
+            },
+"sweep_config":{
+          "node_address":false,
+          "time_stamp":false,
+          "tick":false,
+          "sample_rate":false,
+          "sample_type":false,
+          "node_rssi":false,
+          "base_rssi":false,
+          "frequency":false, 
+          "time_out":500
+        }
+            
+}
