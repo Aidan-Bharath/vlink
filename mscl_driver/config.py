@@ -22,12 +22,12 @@ def get_config(*args,**kwds):
     """
     
     if kwds["_p"]:
-        _p = f"{kwds['_p']}"
+        _p = str(kwds['_p'])
     else:
-        _p = f"{os.getcwd()}"
+        _p = str(os.getcwd())
 
-    config = f"{_p}/config.json"
-    assert os.path.isfile(config), f"Config file not found in {_p}"
+    config = str(_p)+"/config.json"
+    assert os.path.isfile(config), "Config file not found in "+str(_p)
 
     with open(config,'r') as cf:
         js = json.load(cf)
