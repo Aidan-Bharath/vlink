@@ -25,7 +25,7 @@ def run(*args, **kwds):
 
 
     IP,port,num = get_config("client_addr", "client_port", "node_num", _p=_p)
-    node, basestation = create_mscl_node(IP, port, num)
+    node, basestation = create_mscl_node(IP, port, num, *args, **kwds)
     
 
     if debug: test_response(node, *args, **kwds)

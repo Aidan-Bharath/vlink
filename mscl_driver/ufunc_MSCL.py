@@ -43,7 +43,7 @@ def create_mscl_node(tcpIP, tcpP, node, *args, **kwds):
 
     except mscl.Error_InvalidTcpServer as e:
         print(e, "- Server Node Cannot be Created - Exitting")
-        if not kwds["debug"]  sys.exit() # comment to conitnue running the script
+        if not kwds["debug"]: sys.exit() # comment to conitnue running the script
 
         return None, None
 
@@ -64,7 +64,7 @@ def test_response(node, *args, **kwds):
         assert response.success(), "Ping to node unsuccessful - Exitting"
     except (AttributeError) as e:
         print(e, ' - Node not available - Exitting')
-        if not kwds["debug"]  sys.exit() # comment to conitnue running the script
+        if not kwds["debug"]:  sys.exit() # comment to conitnue running the script
 
 
 
@@ -88,7 +88,7 @@ def set_RSSI(node, *args, **kwds):
     except AttributeError as e:
         # pass when node doesn't exist
         print(e, "Failed to set RSSI - Exiting")
-        if not kwds["debug"]  sys.exit() # comment to conitnue running the script
+        if not kwds["debug"]:  sys.exit() # comment to conitnue running the script
     finally:
         return node
 
@@ -105,11 +105,11 @@ def set_idle_status(node, *args, **kwds):
         while not idleStatus.complete(): #threading?
             print("."),
         result = __IDLE_TEST__(idleStatus.result())
-        print(f"Set to Idle returned: {result}")
+        print("Set to Idle returned: ", result)
 
     except (AttributeError, ValueError) as e:
         print(e, "- Failed Node Set to Idle - Exitting")
-        if not kwds["debug"]  sys.exit() # comment to conitnue running the script
+        if not kwds["debug"]: sys.exit() # comment to conitnue running the script
     finally:
         return node
 
@@ -144,7 +144,7 @@ def set_node_config(node, *args, **kwds):
 
     except AttributeError as e:
         print(e, "- Failed in Node Configure - Exiting")
-        if not kwds["debug"]  sys.exit() # comment to conitnue running the script
+        if not kwds["debug"]: sys.exit() # comment to conitnue running the script
 
     finally:
         return node
@@ -177,19 +177,15 @@ def show_node_config(node,*args,**kwds):
             channels = node.getActiveChannels()
             sweeps = node.getNumSweeps()
 
-        cases = f"""
-        Node Configuration Parameters: 
-
-                Number of Data Log Sessions: {log} 
-                Inactivity Timeout: {timeout} 
-                Number of Active Channels: {channels} 
-                Number of Sweeps: {sweeps} 
-                """ 
-        print(cases)
+        print("Node Configuration Parameters:") 
+        print("Number of Data Log Sessions: ", log) 
+        print("Inactivity Timeout: ", timeout)
+        print("Number of Active Channels: ", channels) 
+        print("Number of Sweeps: ", sweeps) 
 
     except (AttributeError) as e:
         print(e, ' - Node not available - Exitting')
-        if not kwds["debug"]  sys.exit() # comment to conitnue running the script
+        if not kwds["debug"]:  sys.exit() # comment to conitnue running the script
 
 
 
